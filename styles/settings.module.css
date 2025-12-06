@@ -1,95 +1,71 @@
-/* Light Mode Settings */
-
 .container {
-  max-width: 800px;
-  color: #111;
+  max-width: 600px;
 }
 
 .header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
   margin-bottom: 30px;
 }
 
-.header h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-/* Card Section */
 .section {
   background: #ffffff;
-  border: 1px solid #e4e4e7;
+  padding: 24px;
   border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #f3f4f6;
+  margin-bottom: 24px;
 }
 
 .sectionTitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
+  color: #374151;
   margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #e4e4e7;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f3f4f6;
 }
 
-/* Form */
 .formGroup {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .label {
   display: block;
-  font-size: 0.9rem;
-  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
   margin-bottom: 8px;
 }
 
 .input {
   width: 100%;
   padding: 10px 12px;
-  border-radius: 6px;
-  background: #f9fafb;
   border: 1px solid #d1d5db;
-  font-size: 1rem;
-  color: #111;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  transition: border-color 0.2s;
 }
 
 .input:focus {
   outline: none;
-  border-color: #4f46e5;
-  background: #fff;
-}
-
-/* Buttons */
-.actions {
-  display: flex;
-  gap: 15px;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
 }
 
 .saveButton {
-  padding: 10px 20px;
-  background: #4f46e5;
+  background-color: #2563eb;
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .saveButton:hover {
-  background: #4338ca;
-}
-
-.cancelButton {
-  padding: 10px 20px;
-  background: transparent;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  color: #6b7280;
-  cursor: pointer;
-}
-
-.cancelButton:hover {
-  background: #f3f4f6;
-  color: #111;
+  background-color: #1d4ed8;
 }

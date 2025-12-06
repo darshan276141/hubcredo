@@ -5,55 +5,85 @@ import Link from "next/link";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   async function handleLogin(e) {
     e.preventDefault();
+    setError("");
 
     const res = await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
-      credentials: "include", // required for cookies
+      credentials: "include", 
     });
 
     const data = await res.json();
 
     if (!res.ok) {
-      alert(data.error || "Login failed");
+      setError(data.error || "Login failed");
       return;
     }
 
-    // redirect on success
     window.location.href = "/dashboard";
   }
 
-
-
   return (
-    <div className={styles.center}>
-      <form className={styles.card} onSubmit={handleLogin}>
-        <h2>Login</h2>
+    <div className={styles.splitScreen}>
+      
+      {/* Left Design Side */}
+      <div className={styles.leftPane}>
+        <div className={styles.welcomeText}>
+          <h1>Welcome Back!</h1>
+          <p>
+            Log in to access your dashboard, manage your projects, 
+            and track your analytics in real-time.
+          </p>
+        </div>
+      </div>
 
-        <input
-          className={styles.input}
-          type="email"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      {/* Right Form Side */}
+      <div className={styles.rightPane}>
+        <form className={styles.formContainer} onSubmit={handleLogin} autoComplete="off">
+          
+          <div>
+            <h2 className={styles.title}>Log in</h2>
+            <p className={styles.subtitle}>Enter your credentials to access your account</p>
+          </div>
 
-        <input
-          className={styles.input}
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          {error && <p style={{color: "red", fontSize: "0.9rem"}}>{error}</p>}
 
-        <button className={styles.button} type="submit">
-          Login
-        </button>
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>Email Address</label>
+            <input
+              className={styles.input}
+              type="email"
+              placeholder="name@company.com"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-        <p>Don&apos;t have an account? <Link href="/signup">Create one</Link></p>
-      </form>
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>Password</label>
+            <input
+              className={styles.input}
+              type="password"
+              placeholder="••••••••"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <button className={styles.button} type="submit">
+            Sign In
+          </button>
+
+          <p className={styles.footer}>
+            Don&apos;t have an account? <Link href="/signup" className={styles.link}>Sign up</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }

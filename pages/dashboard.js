@@ -4,109 +4,58 @@ import styles from "../styles/dashboard.module.css";
 export default function Dashboard() {
   return (
     <Layout>
-      <div className={styles.container}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Hello, Priyadarshan 👋</h1>
+        <p className={styles.subtitle}>Here is what&apos;s happening with your account today.</p>
+      </div>
 
-        {/* Header */}
-        <div className={styles.header}>
-          <div>
-            <h1 className={styles.title}>Welcome to your Dashboard!!</h1>
-            <p className={styles.date}>Saturday, Dec 06, 2025</p>
-          </div>
+      {/* Stats Row */}
+      <div className={styles.statsGrid}>
+        <div className={styles.card}>
+          <p className={styles.cardLabel}>Total Projects</p>
+          <h2 className={styles.cardValue}>12</h2>
+        </div>
+        
+        <div className={styles.card}>
+          <p className={styles.cardLabel}>Pending Tasks</p>
+          <h2 className={styles.cardValue}>5</h2>
         </div>
 
-        {/* Stats */}
-        <div className={styles.statsGrid}>
-          <div className={styles.statCard}>
-            <p className={styles.statTitle}>Total Users</p>
-            <h2 className={styles.statValue}>1,248</h2>
-            <span className={`${styles.statChange} ${styles.positive}`}>+12.5%</span>
-          </div>
-
-          <div className={styles.statCard}>
-            <p className={styles.statTitle}>Active Sessions</p>
-            <h2 className={styles.statValue}>84</h2>
-            <span className={`${styles.statChange} ${styles.positive}`}>+5.2%</span>
-          </div>
-
-          <div className={styles.statCard}>
-            <p className={styles.statTitle}>Server Load</p>
-            <h2 className={styles.statValue}>34%</h2>
-            <span className={`${styles.statChange} ${styles.negative}`}>High</span>
-          </div>
-
-          <div className={styles.statCard}>
-            <p className={styles.statTitle}>Revenue (Today)</p>
-            <h2 className={styles.statValue}>$4,302</h2>
-            <span className={`${styles.statChange} ${styles.positive}`}>+8%</span>
-          </div>
+        <div className={styles.card}>
+          <p className={styles.cardLabel}>Hours Tracked</p>
+          <h2 className={styles.cardValue}>34.5</h2>
         </div>
+      </div>
 
-        {/* Bottom Section */}
-        <div className={styles.bottomGrid}>
-
-          {/* Recent Activity */}
-          <div className={styles.largeCard}>
-            <h3 className={styles.cardHeader}>Recent Activity</h3>
-            <ul className={styles.activityList}>
-              <li className={styles.activityItem}>
-                <div>
-                  <p className={styles.user}>Alice Johnson</p>
-                  <p className={styles.action}>Upgraded to Pro Plan</p>
-                </div>
-                <p className={styles.time}>2 min ago</p>
-              </li>
-
-              <li className={styles.activityItem}>
-                <div>
-                  <p className={styles.user}>Mark Smith</p>
-                  <p className={styles.action}>Created project &quot;Alpha&quot;</p>
-                </div>
-                <p className={styles.time}>15 min ago</p>
-              </li>
-
-              <li className={styles.activityItem}>
-                <div>
-                  <p className={styles.user}>System Bot</p>
-                  <p className={styles.action}>Backup completed</p>
-                </div>
-                <p className={styles.time}>1 hr ago</p>
-              </li>
-
-              <li className={styles.activityItem}>
-                <div>
-                  <p className={styles.user}>Sarah Lee</p>
-                  <p className={styles.action}>Login from new IP</p>
-                </div>
-                <p className={styles.time}>3 hrs ago</p>
-              </li>
-            </ul>
+      {/* Recent Activity */}
+      <div>
+        <h3 className={styles.sectionTitle}>Recent Activity</h3>
+        <div className={styles.activityCard}>
+          
+          <div className={styles.activityItem}>
+            <div className={styles.itemLeft}>
+              <span className={styles.itemTitle}>Project &quot;Alpha&quot; Created</span>
+              <span className={styles.itemDesc}>You started a new repository</span>
+            </div>
+            <span className={styles.itemTime}>2 hrs ago</span>
           </div>
 
-          {/* System Status */}
-          <div className={styles.largeCard}>
-            <h3 className={styles.cardHeader}>System Health</h3>
-
-            <div className={styles.statusRow}>
-              <span>Database</span>
-              <span className={styles.statusIndicator}><span className={`${styles.dot} ${styles.online}`}></span> Online</span>
+          <div className={styles.activityItem}>
+            <div className={styles.itemLeft}>
+              <span className={styles.itemTitle}>Invoice #1024 Paid</span>
+              <span className={styles.itemDesc}>Subscription renewed successfully</span>
             </div>
-
-            <div className={styles.statusRow}>
-              <span>API Gateway</span>
-              <span className={styles.statusIndicator}><span className={`${styles.dot} ${styles.online}`}></span> Online</span>
-            </div>
-
-            <div className={styles.statusRow}>
-              <span>Email Service</span>
-              <span className={styles.statusIndicator}><span className={`${styles.dot} ${styles.busy}`}></span> Latency</span>
-            </div>
-
-            <div className={styles.statusRow}>
-              <span>Storage</span>
-              <span className={styles.statusIndicator}><span className={`${styles.dot} ${styles.online}`}></span> 85% Free</span>
-            </div>
-
+            <span className={styles.itemTime}>1 day ago</span>
           </div>
+
+          <div className={styles.activityItem}>
+            <div className={styles.itemLeft}>
+              <span className={styles.itemTitle}>Profile Updated</span>
+              <span className={styles.itemDesc}>You changed your avatar</span>
+            </div>
+            <span className={styles.itemTime}>2 days ago</span>
+          </div>
+
         </div>
       </div>
     </Layout>

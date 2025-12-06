@@ -1,7 +1,8 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Sidebar from "./Sidebar"; // Import the sidebar
+import styles from "../styles/layout.module.css"; // Import the layout styles
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -9,28 +10,38 @@ export default function Layout({ children }) {
 
   useEffect(() => {
     const publicRoutes = ["/login", "/signup", "/"];
-
+    
     async function checkAuth() {
-      // If on public route → don't check auth
       if (publicRoutes.includes(router.pathname)) {
         setLoading(false);
         return;
       }
-
-      // protected route
-      const res = await fetch("/api/me", { credentials: "include" });
-
-      if (!res.ok) {
-        router.push("/login");
-      } else {
+      
+      try {
+        const res = await fetch("/api/me");
+        if (!res.ok) throw new Error("Not auth");
         setLoading(false);
+      } catch (err) {
+        router.push("/login");
       }
     }
 
     checkAuth();
   }, [router.pathname, router]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div style={{padding: "20px"}}>Loading...</div>;
 
-  return <>{children}</>;
+  // Don't show Sidebar on Login/Signup pages
+  if (["/login", "/signup"].includes(router.pathname)) {
+    return <>{children}</>;
+  }
+
+  return (
+    <div className={styles.mainWrapper}>
+      <Sidebar />
+      <main className={styles.contentArea}>
+        {children}
+      </main>
+    </div>
+  );
 }
