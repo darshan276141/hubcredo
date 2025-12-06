@@ -1,0 +1,42 @@
+.center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+}
+
+.card {
+  width: 350px;
+  padding: 30px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Changed from "input" to ".input" */
+.input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Changed from "button" to ".button" */
+.button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+}
+
+/* Changed from "button:hover" to ".button:hover" */
+.button:hover {
+  opacity: 0.9;
+}

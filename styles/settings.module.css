@@ -1,0 +1,95 @@
+/* Light Mode Settings */
+
+.container {
+  max-width: 800px;
+  color: #111;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Card Section */
+.section {
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+/* Form */
+.formGroup {
+  margin-bottom: 18px;
+}
+
+.label {
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  color: #111;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: #fff;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 15px;
+}
+
+.saveButton {
+  padding: 10px 20px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  background: #4338ca;
+}
+
+.cancelButton {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background: #f3f4f6;
+  color: #111;
+}
